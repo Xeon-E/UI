@@ -13,7 +13,8 @@ function Tile:New(icon, label, Window)
     end
     local Tile = {}
 
-    Tile.Object = Sakkz.require("Sakkz\\Base Objects\\Tile.lua")()
+    Tile.Object = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Base%20Objects/Tile.lua", true))()
+
     Tile.Object.Name = icon
     Tile.Object.Icon.Text = icon
     Tile.Object.Label.Text = label
@@ -28,17 +29,17 @@ function Tile:New(icon, label, Window)
 
     Window.Tiles = Window.Tiles + 1
 
-    Sakkz.require("Sakkz\\Animations\\Tile.lua")(Tile, Window)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Animations/Tile.lua", true))()(Tile, Window)
 
     function Tile:TabList(position, size, options, callback)
         options = options or {}
-        local TabList = Sakkz.require("Sakkz\\TabList.lua"):New(position, size, options, callback, Tile)
+        local TabList = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/TabList.lua", true))():New(position, size, options, callback, Tile)
 
         return TabList
     end
 
     function Tile:Groupbox(position, size, label)
-        local Groupbox = Sakkz.require("Sakkz\\Groupbox.lua"):New(position, size, label, Tile)
+        local Groupbox = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Groupbox.lua", true))():New(position, size, label, Tile)
 
         return Groupbox
     end
