@@ -6,14 +6,14 @@ function TabList:New(position, size, options, callback, Tile)
         Value = options[1],
         Callback = callback or function() end
     }
-    TabList.Object = Sakkz.require("Sakkz\\Base Objects\\TabList.lua")()
+    TabList.Object = loadstring(game:HttpGet("Sakkz/Base Objects/TabList.lua"))()()
     TabList.Object.Parent = Tile.Content
     TabList.Object.Position = position
     TabList.Object.Size = size
 
     local Step = TabList.Object.AbsoluteSize.X / #options
     for index, option in next, options do
-        local Option = Sakkz.require("Sakkz\\Base Objects\\TabListItem.lua")()
+        local Option = loadstring(game:HttpGet("Sakkz/Base Objects/TabListItem.lua"))()()
         Option.Parent = TabList.Object
         Option.Text = option
         Option.Position = UDim2.new(0, Step*(index-1), 0, 0)
@@ -21,14 +21,14 @@ function TabList:New(position, size, options, callback, Tile)
         if index ~= 1 then
             Option.TextColor3 = Color3.fromRGB(255, 255, 255)
         end
-        Sakkz.require("Sakkz\\Animations\\TabListItem.lua")(Option, TabList)
+        loadstring(game:HttpGet("Sakkz/Animations/TabListItem.lua"))()(Option, TabList)
     end
 
     function TabList:SetOptions(options)
         TabList.Value = options[1]
         local Step = TabList.Object.AbsoluteSize.X / #options
         for index, option in next, options do
-            local Option = Sakkz.require("Sakkz\\Base Objects\\TabListItem.lua")()
+            local Option = loadstring(game:HttpGet("Sakkz/Base Objects/TabListItem.lua"))()()
             Option.Parent = TabList.Object
             Option.Text = option
             Option.Position = UDim2.new(0, Step*(index-1), 0, 0)
@@ -36,7 +36,7 @@ function TabList:New(position, size, options, callback, Tile)
             if index ~= 1 then
                 Option.TextColor3 = Color3.fromRGB(255, 255, 255)
             end
-            Sakkz.require("Sakkz\\Animations\\TabListItem.lua")(Option, TabList)
+            loadstring(game:HttpGet("Sakkz/Animations/TabListItem.lua"))()(Option, TabList)
         end
     end
 
