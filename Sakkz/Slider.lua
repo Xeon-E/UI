@@ -9,7 +9,7 @@ function Slider:New(label, options, callback, Groupbox)
     Slider.default = options.default or Slider.min
     Slider.Value = Slider.default
     
-    Slider.Object = Sakkz.require("Sakkz\\Base Objects\\Slider.lua")()
+    Slider.Object = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Base Objects/Slider.lua"))()()
     Slider.Object.Parent = Groupbox.Object
     Slider.Object.Label.Text = label
     Slider.Object.Value.Text = Slider.default
@@ -17,7 +17,7 @@ function Slider:New(label, options, callback, Groupbox)
 
     Groupbox.NextPosition = Groupbox.NextPosition + Slider.Object.AbsoluteSize.Y
 
-    Sakkz.require("Sakkz\\Animations\\Slider.lua")(Slider)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Animations/Slider.lua"))()(Slider)
 
     return Slider
 end
