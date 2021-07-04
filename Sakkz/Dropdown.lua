@@ -7,17 +7,17 @@ function Dropdown:New(label, options, callback, Groupbox)
         Callback = callback
     }
 
-    Dropdown.Object = Sakkz.require("Sakkz\\Base Objects\\Dropdown.lua")()
+    Dropdown.Object = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Base Objects/Dropdown.lua"))()()
     Dropdown.Object.Parent = Groupbox.Object
     Dropdown.Object.Value.Text = Dropdown.Value
     Dropdown.Object.Label.Text = label
     Dropdown.Object.Position = UDim2.new(0, 0, 0, Groupbox.NextPosition)
-    Sakkz.require("Sakkz\\Animations\\Dropdown.lua")(Dropdown)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Animations/Dropdown.lua"))()(Dropdown)
 
     Groupbox.NextPosition = Groupbox.NextPosition + Dropdown.Object.AbsoluteSize.Y
     
     for index, Option in next, options do
-        local Object = Sakkz.require("Sakkz\\Base Objects\\DropdownItem.lua")()
+        local Object = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Base Objects/DropdownItem.lua"))()()
         Object.Parent = Dropdown.Object.Options
         Object.Label.Text = Option
 
@@ -25,7 +25,7 @@ function Dropdown:New(label, options, callback, Groupbox)
             Object.Label.TextColor3 = Color3.fromRGB(255, 0, 127)
         end
 
-        Sakkz.require("Sakkz\\Animations\\DropdownItem.lua")(Object, Dropdown)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Animations/DropdownItem.lua"))()(Object, Dropdown)
     end
 
     return Dropdown
