@@ -6,12 +6,12 @@ function Checkbox:New(label, callback, Groupbox)
         Value = false,
         Callback = callback
     }
-    Checkbox.Object = Sakkz.require("Sakkz\\Base Objects\\Checkbox.lua")()
+    Checkbox.Object = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Base Objects/Checkbox.lua"))()()
     Checkbox.Object.Label.Text = label
     Checkbox.Object.Parent = Groupbox.Object
     Checkbox.Object.Position = UDim2.new(0, 0, 0, Groupbox.NextPosition)
 
-    Sakkz.require("Sakkz\\Animations\\Checkbox.lua")(Checkbox)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeon-E/UI/master/Sakkz/Animations/Checkbox.lua"))()(Checkbox)
 
     Groupbox.NextPosition = Groupbox.NextPosition + Checkbox.Object.AbsoluteSize.Y
 
